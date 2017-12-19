@@ -193,3 +193,42 @@ int Solution::getSum(int a, int b)
 	}
 	return a;
 }
+
+/*
+ * A self-dividing number is a number that is divisible by every digit it contains. 
+ * Also, a self-dividing number is not allowed to contain the digit zero. 
+ * Given a lower and upper number bound, output a list of every possible self dividing number, including the bounds if possible.
+ * Links: https://leetcode.com/problems/self-dividing-numbers/description/
+ */
+std::vector<int> Solution::selfDividingNumbers(int left, int right)
+{
+    debug("Enter function");
+    std::vector<int> ret;
+
+    for (int i = left; i <= right; ++i)
+    {
+	bool is_dividing_number = true;
+	int _temp = i;
+	
+	while (_temp > 0) 
+	{
+	    int digit = _temp % 10;
+	    if ( digit == 0 ) {
+	        is_dividing_number = false;
+		break;
+	    }
+    	    std::cout << "Digit to test: " << digit << std::endl;
+	    if ( i % digit != 0) {
+		is_dividing_number = false;
+		break;
+	    }
+	    _temp = _temp / 10;
+       	    std::cout << "Template number: "  << _temp << std::endl;   
+	}
+
+	if (is_dividing_number) {
+	    std::cout << "Self dividing Number: "  << i << std::endl;
+	    ret.push_back(i);
+	}
+    }
+}

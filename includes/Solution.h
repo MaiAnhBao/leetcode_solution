@@ -33,6 +33,8 @@ public:
     bool checkPerfectNumber(int num);
 
     int getSum(int a, int b);
+
+    std::vector<int> selfDividingNumbers(int left, int right);    
 };
 
 #endif // SOLUTION_H
