@@ -1,8 +1,9 @@
 #include "Solution.h"
+#include "Logger.h"
 
 Solution::Solution()
 {
-    std::cout << __FUNCTION__ << std::endl;
+   debug("Constructor"); 
 }
 
 /*
@@ -61,6 +62,14 @@ TreeNode* Solution::mergeTrees(TreeNode* t1, TreeNode* t2) {
     return ret;
 }
 
+
+/*
+ * Description: 
+ *
+ *
+ *
+ *
+ */
 int Solution::findComplement(int num)
 {
     std::bitset<32> unum(num);
@@ -145,6 +154,11 @@ int Solution::missingNumber(std::vector<int> &nums)
     return sum;
 }
 
+/*
+ * 
+ *
+ *
+ */
 bool Solution::checkPerfectNumber(int num)
 {
     int sum = 1;
@@ -163,4 +177,19 @@ bool Solution::checkPerfectNumber(int num)
         std::cout << sum << std::endl;
     }
     return sum==num;
+}
+
+/*
+ * Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.
+ * Links: https://leetcode.com/problems/sum-of-two-integers/description/
+ */
+int Solution::getSum(int a, int b)
+{
+	while (b !=0) {
+		int carry = a & b;
+		a = a ^ b;
+		b = carry << 1;
+		debug("a: %d\t b: %d\t carry: %d\n", a, b, carry);
+	}
+	return a;
 }

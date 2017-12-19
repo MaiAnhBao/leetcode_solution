@@ -31,6 +31,8 @@ public:
     int missingNumber(std::vector<int>& nums);
 
     bool checkPerfectNumber(int num);
+
+    int getSum(int a, int b);
 };
 
 #endif // SOLUTION_H
