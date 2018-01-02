@@ -34,7 +34,9 @@ public:
 
     int getSum(int a, int b);
 
-    std::vector<int> selfDividingNumbers(int left, int right);    
+    std::vector<int> selfDividingNumbers(int left, int right);   
+
+    int sumOfLeftLeaves(TreeNode* root); 
 };
 
 #endif // SOLUTION_H

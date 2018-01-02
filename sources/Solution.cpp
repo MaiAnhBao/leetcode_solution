@@ -232,3 +232,31 @@ std::vector<int> Solution::selfDividingNumbers(int left, int right)
 	}
     }
 }
+
+/*
+ *
+ *
+ */
+int Solution::sumOfLeftLeaves(TreeNode* root)
+{
+    debug("Enter function");
+    int ret = 0;
+    if (root == NULL || (root->left == NULL && root->right == NULL))
+	return 0;
+    else {
+	std::cout << "value: " << root->val << std::endl;
+    }
+
+    if (root->left != NULL) {
+	if (root->right->left == NULL && root->right->right == NULL)
+    		ret += root->left->val;
+	else 
+		ret += sumOfLeftLeaves(root->left);
+    }
+
+    if (root->right != NULL) {
+	if (root->right->left != NULL || root->right->right != NULL)
+    		ret += sumOfLeftLeaves(root->right);
+    }
+    return ret;
+}
